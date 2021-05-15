@@ -80,11 +80,11 @@ def show_shopping_cart():
         # print("~~~~~~~~~~~~~~~~")
         # print(f"melon object price = {melon_object.price}")
         # print(f"type: melon object price = {type(melon_object.price)}")
-        melon_object.quantity = float(current_cart[melon])
+        melon_object.quantity = (current_cart[melon])
         # print("~~~~~~~~~~~~~~~~")
         # print(f"melon object quantity = {melon_object.quantity}")
         # print(f"type: melon object quantity = {type(melon_object_quantity)}")
-        melon_object.total_price = (melon_object.price)*(melon_object.quantity)
+        melon_object.total_price = (melon_object.price)*(float(melon_object.quantity))
         # print("~~~~~~~~~~~~~~~~")
         # print(f"melon object total price = {melon_object.total_price}")
         # print(f"type: melon object quantity = {type(melon_object_total_price)}")
@@ -96,8 +96,8 @@ def show_shopping_cart():
 
         # Add the total price for that melon type to a running tally of total cost for the order
         current_order_total += melon_object.total_price
-        print("~~~~~~~~~~~~~~~~")
-        print(f"current order total = {current_order_total}")
+        # print("~~~~~~~~~~~~~~~~")
+        # print(f"current order total = {current_order_total}")
         
 
     return render_template("cart.html",
