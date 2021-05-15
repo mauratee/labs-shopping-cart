@@ -63,17 +63,17 @@ def show_shopping_cart():
     """Display content of shopping cart."""
     
     current_cart = session["cart"]
-    print("~~~~~~~~~~~~~~~~")
-    print(f"current cart = {current_cart}")
+    # print("~~~~~~~~~~~~~~~~")
+    # print(f"current cart = {current_cart}")
     melon_objects = []
     current_order_total = 0
     total_cost_for_melon_type = {}
     for melon in current_cart:
         # import pdb; pdb.set_trace()
         melon_object = melons.get_by_id(melon) # retrieve Melon object using get_by_id function
-        print("~~~~~~~~~~~~~~~~")
-        print(f"melon = {melon}")
-        print(f"melon object = {melon_object}")
+        # print("~~~~~~~~~~~~~~~~")
+        # print(f"melon = {melon}")
+        # print(f"melon object = {melon_object}")
         
         # Add quantity and total price attributes to the Melon object.
         melon_object_price = melon_object.price
@@ -101,11 +101,10 @@ def show_shopping_cart():
         
 
     return render_template("cart.html",
-                            current_total=current_order_total)
-    # session['session_id'] = 12345
-    # print("**********")
-    # print(session['session_id'])
-    # print(session.keys)
+                            current_total=current_order_total,
+                            melon_objects_in_cart=melon_objects)
+    
+
     # TODO: Display the contents of the shopping cart.
 
     # The logic here will be something like:
